@@ -53,8 +53,8 @@ export class ContractListService {
       ],
       base: {
         FlagChange: 'A',
-      },
-    },
+      }
+    }
   };
 
 
