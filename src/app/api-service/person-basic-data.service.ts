@@ -3,53 +3,44 @@ import { map, Observable, of } from 'rxjs';
 import { Person } from '../model/person-basic-data.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PersonBasicDataService {
   // RESPONSE:
-  constructor() { }
-  public getPersonBasicData(): Observable<{ sections: string[]; operations: string[]; data: Person; }> {
-    const response = {
-      getPeopleBasicData: {
-        message: 'PEO-000_O_Success',
-        response: {
-          OPERATIONS: [],
-          SECTIONS: [],
-          PMSAPEOPLE_BASIC_REC: {
-            BUSINESS_EMAIL: '',
-            ID_PEOPLE: 4247,
-            RESOURCE_BIRTHDATE: '12/11/1964',
-            RESOURCE_GENDER: 'M',
-            RESOURCE_MIDDLE_NAME: '',
-            RESOURCE_NAME: 'Luigi',
-            RESOURCE_SURNAME: 'Berloni',
-          },
-        },
+  getPeopleBasicData = {
+    message: 'PEO-000_O_Success',
+    response: {
+      OPERATIONS: [],
+      SECTIONS: [],
+      PMSAPEOPLE_BASIC_REC: {
+        BUSINESS_EMAIL: '',
+        ID_PEOPLE: 4247,
+        RESOURCE_BIRTHDATE: '12/11/1964',
+        RESOURCE_GENDER: 'M',
+        RESOURCE_MIDDLE_NAME: '',
+        RESOURCE_NAME: 'Luigi',
+        RESOURCE_SURNAME: 'Berloni',
       },
-    };
-
-    return of(response).pipe(
+    },
+  };
+  constructor() {}
+  public getPersonBasicData(): Observable<{
+    sections: string[];
+    operations: string[];
+    data: Person;
+  }> {
+    return of(this.getPeopleBasicData).pipe(
       map((res) => ({
-        sections: res.getPeopleBasicData.response.SECTIONS,
-        operations: res.getPeopleBasicData.response.OPERATIONS,
+        sections: res.response.SECTIONS,
+        operations: res.response.OPERATIONS,
         data: {
-          id: res.getPeopleBasicData.response.PMSAPEOPLE_BASIC_REC.ID_PEOPLE,
-          name: res.getPeopleBasicData.response.PMSAPEOPLE_BASIC_REC
-            .RESOURCE_NAME,
-          middleName:
-            res.getPeopleBasicData.response.PMSAPEOPLE_BASIC_REC
-              .RESOURCE_MIDDLE_NAME,
-          surname:
-            res.getPeopleBasicData.response.PMSAPEOPLE_BASIC_REC
-              .RESOURCE_SURNAME,
-          businessEmail:
-            res.getPeopleBasicData.response.PMSAPEOPLE_BASIC_REC.BUSINESS_EMAIL,
-          gender:
-            res.getPeopleBasicData.response.PMSAPEOPLE_BASIC_REC
-              .RESOURCE_GENDER,
-          birthdate:
-            res.getPeopleBasicData.response.PMSAPEOPLE_BASIC_REC
-              .RESOURCE_BIRTHDATE,
+          id: res.response.PMSAPEOPLE_BASIC_REC.ID_PEOPLE,
+          name: res.response.PMSAPEOPLE_BASIC_REC.RESOURCE_NAME,
+          middleName: res.response.PMSAPEOPLE_BASIC_REC.RESOURCE_MIDDLE_NAME,
+          surname: res.response.PMSAPEOPLE_BASIC_REC.RESOURCE_SURNAME,
+          gender: res.response.PMSAPEOPLE_BASIC_REC.RESOURCE_GENDER,
+          birthdate: res.response.PMSAPEOPLE_BASIC_REC.RESOURCE_BIRTHDATE,
+          businessEmail: res.response.PMSAPEOPLE_BASIC_REC.BUSINESS_EMAIL,
         },
       }))
     );

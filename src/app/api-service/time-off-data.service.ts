@@ -3,13 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable, of, map } from 'rxjs';
 import { ITimeOff } from '../model/time-off-data.model';
 
-@Injectable(
-  {
-    providedIn: 'root'
-  }
-)
+@Injectable({
+  providedIn: 'root',
+})
 export class TimeOffDataService {
-  private REQUEST = "https://run.mocky.io/v3/9e7f89ea-85e0-4ead-b5aa-c4219ea3f617";
+  private REQUEST =
+    'https://run.mocky.io/v3/9e7f89ea-85e0-4ead-b5aa-c4219ea3f617';
 
   getTimeOffdataResp = {
     message: 'PEO-000_O_Success',
@@ -40,8 +39,8 @@ export class TimeOffDataService {
             ELEMENTDESC: 'Sabbatico',
             ELEMENTID: 4,
             ELEMENTSELECTED: '',
-          }
-        ]
+          },
+        ],
       },
       PMSAPEOPLE_TIMEOFF_LIST: [
         {
@@ -52,19 +51,16 @@ export class TimeOffDataService {
           TIMEOFF_EXPIRY_DATE: '01/01/2021',
           TIMEOFF_NOTE: 'Note',
           TIMEOFF_START_DATE: '01/01/2020',
-        }
-      ]
-    }
-  }
+        },
+      ],
+    },
+  };
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) {}
   public getTimeOffData(): Observable<ITimeOff> {
-
     return of(this.getTimeOffdataResp).pipe(
-      map(res => ({
-        timeOffList: res.response?.PMSAPEOPLE_TIMEOFF_LIST?.map(el => ({
+      map((res) => ({
+        timeOffList: res.response?.PMSAPEOPLE_TIMEOFF_LIST?.map((el) => ({
           descTimeOffType: el.DESC_TIMEOFF_TYPE,
           idPeople: el.ID_PEOPLE,
           idPeopleTimeOff: el.ID_PEOPLE_TIMEOFF,
@@ -73,11 +69,13 @@ export class TimeOffDataService {
           timeOffExpiryDate: el.TIMEOFF_EXPIRY_DATE,
           timeOffNote: el.TIMEOFF_NOTE,
         })),
-        timeOffCombo: res.response?.PMSAPEOPLE_TIMEOFF_COMBO?.TIMEOFF_TYPE?.map(type => ({
-          id: type.ELEMENTID,
-          name: type.ELEMENTDESC,
-        })),
-        timeOffOperations: res.response?.OPERATIONS
+        timeOffCombo: res.response?.PMSAPEOPLE_TIMEOFF_COMBO?.TIMEOFF_TYPE?.map(
+          (type) => ({
+            id: type.ELEMENTID,
+            name: type.ELEMENTDESC,
+          })
+        ),
+        timeOffOperations: res.response?.OPERATIONS,
       }))
     );
   }
