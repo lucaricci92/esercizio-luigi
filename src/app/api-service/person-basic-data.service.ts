@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
+import { Person } from '../model/person-basic-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -54,26 +55,26 @@ export class PersonBasicDataService {
     );
   }
 }
-export interface Person {
-  id?: any;
-  name?: string;
-  middleName?: string;
-  surname?: string;
-  businessEmail?: string;
-  gender?: string;
-  genderDescription?: string;
-  birthdate?: string;
-  contractEndDate?: string;
-  contractStartDate?: string;
-  contractType?: string;
+// export interface Person {
+//   id?: any;
+//   name?: string;
+//   middleName?: string;
+//   surname?: string;
+//   businessEmail?: string;
+//   gender?: string;
+//   genderDescription?: string;
+//   birthdate?: string;
+//   contractEndDate?: string;
+//   contractStartDate?: string;
+//   contractType?: string;
 
-  mainOfficeLocation?: string;
-  perDiem?: number;
-  internalRole?: string;
-  contractFirstStartDate?: string;
-  payrollNumber?: string;
+//   mainOfficeLocation?: string;
+//   perDiem?: number;
+//   internalRole?: string;
+//   contractFirstStartDate?: string;
+//   payrollNumber?: string;
 
-  status?: string;
-  employer?: string;
-  changes?: any[];
-}
+//   status?: string;
+//   employer?: string;
+//   changes?: any[];
+// }

@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ContractClosingService } from '../contract-closing.service';
-import { Contract, ContractListService } from '../contract-list.service';
-import { PeopleListService } from '../people-list.service';
-import { Person, PersonBasicDataService } from '../person-basic-data.service';
-import { ISecondment, SecondmentDataService } from '../secondment-data.service';
-import { ITimeOff, TimeOffDataService } from '../time-off-data.service';
+import { ContractClosingService } from '../api-service/contract-closing.service';
+import { ContractListService } from '../api-service/contract-list.service';
+import { PeopleListService } from '../api-service/people-list.service';
+import { PersonBasicDataService } from '../api-service/person-basic-data.service';
+import { SecondmentDataService } from '../api-service/secondment-data.service';
+import { TimeOffDataService } from '../api-service/time-off-data.service';
+import { Contract } from '../model/contract-list.model';
+import { Person } from '../model/person-basic-data.model';
+import { ISecondment } from '../model/secondment-data.model';
+import { ITimeOff } from '../model/time-off-data.model';
+
+
+
 
 @Component({
   selector: 'app-home',
