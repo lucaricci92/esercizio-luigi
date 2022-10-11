@@ -101,36 +101,3 @@ export class ContractListService {
     )
   }
 }
-
-// export interface Contract {
-//   bonusMechanismNotes: string;
-//   contractLevel: string;
-//   contractStartDate: string;
-//   contractEndDate: string;
-//   contractType: string;
-//   employer: string;
-//   fixedBonus: number;
-//   fteYearlySalary: number;
-//   fullTimeEquivalent: number;
-//   idPeople: number;
-//   id: number;
-//   mainOfficeLocation: string;
-//   maxBonusType: string;
-//   maxPercGrossAnnSalBonus: number;
-//   internalRole: string;
-//   roleClass: string;
-//   roleGroup: string;
-//   reasonForChange: string;
-//   oneOffBonus: number;
-//   oneOffNotes: string;
-//   specialCategoryFlag: boolean;
-//   flagClose: string;
-//   // idContractType?: any;
-//   // idMainOfficeLocation?: string ;
-//   // idMaxBonusType?: number;
-//   // idEmployer?: string ;
-//   // idContractLevel?: string ;
-//   // flag?: string ;
-//   // idReasonForChange: number;
-//   // idInternalRole?: number;
-// }
